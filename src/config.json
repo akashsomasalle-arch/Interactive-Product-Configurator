@@ -1,0 +1,260 @@
+{
+  "project": {
+    "name": "Tent Configurator v1",
+    "version": "1.0.0"
+  },
+  "landing": {
+    "title": "Shop custom canopy tents by size",
+    "logo": {
+      "src": "/icons/logo.avif",
+      "alt": "MVP Visuals"
+    }
+  },
+  "catalog": {
+    "id": "logo-canopy-tent",
+    "name": "Logo Canopy Tent",
+    "skus": [
+      {
+        "id": "5x5",
+        "label": "5' × 5'",
+        "displayName": "5x5 Logo Canopy Tent",
+        "imageUrl": "/icons/5x5_tent_icon.webp",
+        "modelPath": "/models/Tent_5_5.glb"
+      },
+      {
+        "id": "6.5x6.5",
+        "label": "6.5' × 6.5'",
+        "displayName": "6.5x6.5 Logo Canopy Tent",
+        "imageUrl": "/icons/6.5x6.5_tent_icon.webp",
+        "modelPath": "/models/Tent_6.5_6.5.glb"
+      },
+      {
+        "id": "8x8",
+        "label": "8' × 8'",
+        "displayName": "8x8 Logo Canopy Tent",
+        "imageUrl": "/icons/8x8_tent_icon.webp",
+        "modelPath": "/models/Tent_8_8.glb"
+      }
+    ]
+  },
+  "packages": [
+    {
+      "id": "canopy-frame",
+      "title": "Canopy + frame",
+      "description": "Printed canopy, hex aluminum frame, roller bag, ropes and stakes",
+      "includesFrame": true
+    },
+    {
+      "id": "canopy-only",
+      "title": "Canopy only",
+      "description": "Printed canopy top for a compatible existing frame",
+      "includesFrame": false
+    }
+  ],
+  "defaults": {
+    "packageType": "canopy-frame",
+    "quantity": 1,
+    "quantityMax": 25,
+    "backWall": { "coverage": "none", "printMode": "double" },
+    "sideWalls": { "coverage": "none", "printMode": "double" }
+  },
+  "walls": {
+    "back": [
+      { "id": "none", "title": "No back wall" },
+      { "id": "full", "title": "Add back wall" }
+    ],
+    "sides": [
+      { "id": "none", "title": "No side walls" },
+      { "id": "half", "title": "Half-height sides" },
+      { "id": "full", "title": "Full side walls" }
+    ]
+  },
+  "pricing": {
+    "currency": "USD",
+    "sizes": { "5x5": 429, "6.5x6.5": 549, "8x8": 699 },
+    "packages": { "canopy-frame": 0, "canopy-only": -120 },
+    "backWalls": { "none": 0, "full": 149 },
+    "sideWalls": { "none": 0, "half": 89, "full": 179 },
+    "printSurcharge": { "double": 40 },
+    "artwork": 25,
+    "text": 15,
+    "quantityDiscounts": [
+      { "min": 2, "rate": 0.05 },
+      { "min": 5, "rate": 0.1 },
+      { "min": 10, "rate": 0.15 }
+    ]
+  },
+  "scene": {
+    "backgroundColor": "#ece8e7",
+    "exposure": 1,
+    "environmentIntensity": 1.4,
+    "environmentPath": "/hdr/panorama.hdr",
+    "ambientIntensity": 0.35,
+    "contactShadows": {
+      "opacity": 0.14,
+      "scale": 12,
+      "blur": 3.2,
+      "far": 8,
+      "y": -0.01
+    }
+  },
+  "graphics": {
+    "canvasSize": 2048,
+    "logoSizeRatio": 0.15,
+    "textFontSize": 100,
+    "textCanvasHeight": 140,
+    "textDefaultFont": "sans-serif",
+    "textDefaultColor": "#000000",
+    "textFonts": [
+      { "value": "sans-serif", "label": "Modern Sans" },
+      { "value": "serif", "label": "Classic Serif" },
+      { "value": "monospace", "label": "Mono" },
+      { "value": "Georgia", "label": "Georgia" },
+      { "value": "Impact", "label": "Impact" }
+    ],
+    "showStats": false,
+    "logCamera": false,
+    "postprocessing": false,
+    "thumbnailQuality": 0.72,
+    "n8ao": {
+      "aoRadius": 0.55,
+      "intensity": 1.2,
+      "distanceFalloff": 0.55
+    },
+    "overlay": {
+      "selection": "#1cc4fa",
+      "danger": "#ff4343",
+      "locked": "#888888",
+      "handle": "#ffffff",
+      "pinOn": "#222222",
+      "pinOff": "#aaaaaa"
+    }
+  },
+  "model": {
+    "path": "/models/Tent_5_5.glb",
+    "parts": [
+      "all",
+      "valance",
+      "back-peak",
+      "front-peak",
+      "left-peak",
+      "right-peak",
+      "back-valance",
+      "front-valance",
+      "left-valance",
+      "right-valance"
+    ],
+    "partLabels": {
+      "all": "All Parts (Entire Canopy)",
+      "valance": "Valance (All 4 Sides)",
+      "back-peak": "Back Peak",
+      "front-peak": "Front Peak",
+      "left-peak": "Left Peak",
+      "right-peak": "Right Peak",
+      "back-valance": "Back Valance",
+      "front-valance": "Front Valance",
+      "left-valance": "Left Valance",
+      "right-valance": "Right Valance"
+    },
+    "defaultColors": {
+      "fabric": "#F6AF2D",
+      "metal": "#C8C8C8",
+      "all": "#FFFFFF",
+      "valance": "#FFFFFF",
+      "back-peak": "#FFFFFF",
+      "front-peak": "#FFFFFF",
+      "left-peak": "#FFFFFF",
+      "right-peak": "#FFFFFF",
+      "back-valance": "#FFFFFF",
+      "front-valance": "#FFFFFF",
+      "left-valance": "#FFFFFF",
+      "right-valance": "#FFFFFF"
+    },
+    "metalParts": ["legs", "mechanism"],
+    "wallFit": {
+      "inset": 0.03,
+      "widthScale": 0.94,
+      "halfHeightRatio": 0.48,
+      "eaveRatio": 0.55,
+      "minHeight": 0.05,
+      "valanceMinAboveGround": 0.2,
+      "valanceMaxBelowPeak": 0.15
+    }
+  },
+  "camera": {
+    "fov": 45,
+    "near": 0.1,
+    "far": 100,
+    "defaultZ": 3.848,
+    "defaultView": "front",
+    "snapDistance": 0.04,
+    "target": { "x": -0.005, "y": 0.868, "z": -0.011 },
+    "minDistance": 2.5,
+    "maxDistance": 12,
+    "minPolarAngle": 0.08,
+    "maxPolarAngle": 1.636,
+    "lerp": 0.14,
+    "dampingFactor": 0.08,
+    "autoRotateSpeed": 8,
+    "views": {
+      "front": { "x": 3.183, "y": 0.670, "z": 3.848 },
+      "left": { "x": -5.010, "y": 0.670, "z": -0.011 },
+      "right": { "x": 5.000, "y": 0.670, "z": -0.011 },
+      "top": { "x": 0.195, "y": 5.870, "z": 0.189 }
+    },
+    "viewTargets": {
+      "top": { "x": -0.005, "y": 0.868, "z": -0.011 }
+    }
+  },
+  "ui": {
+    "sections": ["setup", "color", "upload", "text", "quote", "saved"],
+    "sectionNav": {
+      "setup": { "label": "Setup", "title": "Product setup" },
+      "color": { "label": "Color", "title": "Color & Material" },
+      "upload": { "label": "Upload", "title": "Upload Artwork" },
+      "text": { "label": "Text", "title": "Add Text" },
+      "quote": { "label": "Quote", "title": "Quote & cart" },
+      "saved": { "label": "Saved", "title": "Saved Designs" }
+    },
+    "assetLimit": 10,
+    "colorPalette": [
+      { "hex": "#F6AF2D", "name": "MVP Gold" },
+      { "hex": "#FFFFFF", "name": "Pure White" },
+      { "hex": "#F5F0E8", "name": "Cream" },
+      { "hex": "#E8D5B0", "name": "Sand" },
+      { "hex": "#C8AA6E", "name": "Gold" },
+      { "hex": "#D4B896", "name": "Camel" },
+      { "hex": "#B5A99A", "name": "Taupe" },
+      { "hex": "#8C7B6E", "name": "Mocha" },
+      { "hex": "#6B5B4E", "name": "Espresso" },
+      { "hex": "#3D2B1F", "name": "Dark Umber" },
+      { "hex": "#1A1008", "name": "Midnight" },
+      { "hex": "#2C3E50", "name": "Navy" },
+      { "hex": "#4A6741", "name": "Forest" },
+      { "hex": "#8B9D6A", "name": "Sage" },
+      { "hex": "#C4A882", "name": "Wheat" },
+      { "hex": "#9B7B5C", "name": "Hazelnut" },
+      { "hex": "#D4C5B0", "name": "Linen" },
+      { "hex": "#E8E0D5", "name": "Pearl" },
+      { "hex": "#7A6652", "name": "Walnut" },
+      { "hex": "#000000", "name": "Pure Black" },
+      { "hex": "#EAEAEA", "name": "Light Grey" },
+      { "hex": "#999999", "name": "Mid Grey" },
+      { "hex": "#333333", "name": "Dark Grey" },
+      { "hex": "#E05C5C", "name": "Crimson" },
+      { "hex": "#C43A3A", "name": "Ruby Red" },
+      { "hex": "#E68A5C", "name": "Burnt Orange" },
+      { "hex": "#E8B84E", "name": "Mustard" },
+      { "hex": "#F2D873", "name": "Pale Yellow" },
+      { "hex": "#6E9C76", "name": "Mint" },
+      { "hex": "#3B7A57", "name": "Jungle Green" },
+      { "hex": "#5C85E0", "name": "Sky Blue" },
+      { "hex": "#3A6EA6", "name": "Ocean Blue" },
+      { "hex": "#234B7A", "name": "Deep Royal" },
+      { "hex": "#8A5CE0", "name": "Lavender" },
+      { "hex": "#5C3A99", "name": "Plum" },
+      { "hex": "#D966A5", "name": "Rose Pink" },
+      { "hex": "#A63A70", "name": "Magenta" }
+    ]
+  }
+}
