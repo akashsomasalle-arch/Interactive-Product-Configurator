@@ -15,21 +15,6 @@ Readable production build (source maps on):
 npm run build
 ```
 
-Obfuscated production build (no source maps, JS identifiers/strings scrambled):
-
-```bash
-npm run build:obfuscate
-npm run preview
-```
-
-`build:obfuscate` drops `console`/`debugger`, deletes `.map` files, skips Vite’s preload helper, uses a lighter pass on vendor chunks, and fully obfuscates app chunks. Three.js property names are left intact so the viewer keeps working.
-
-## Netlify
-
-Connect the repo and use the included `netlify.toml` (build command `npm run build:obfuscate`, publish `dist`). The SPA redirect sends `/configure/5x5` to `index.html`, so refresh and iframe embeds work. Deploy at the site root, not a subfolder.
-
-If you drag-and-drop `dist` instead of Git build, that folder already contains `_redirects` from the Vite public assets.
-
 Landing: `/`  
 Viewer: `/configure/5x5` (also `6.5x6.5`, `8x8`)  
 Iframe embed: `/configure/5x5?embed=1`
@@ -54,11 +39,3 @@ The 3D scene, UV minimap and properties panel are unchanged.
 - `src/services/pricingEngine.ts` turns setup + artwork counts into a quote using the config price table (size, package, walls, print, artwork, quantity discount).
 - `src/services/shopifyCart.ts` writes a mock draft order (`tent_shopify_draft_orders` in localStorage) with line item properties, including `ConfigurationJson`.
 - Production PDF opens a print layout with selections, line items and a 3D snapshot. Save as PDF from the browser.
-
-## Embed
-
-```html
-<iframe src="https://your-host/configure/8x8?embed=1" width="100%" height="800"></iframe>
-```
-
-When `embed=1`, the parent can listen for `tent:config` postMessages containing the structured configuration and quote.
